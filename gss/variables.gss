@@ -1,0 +1,18 @@
+// BASE UNIT. All Things are sized based on $base
+
+
+$base = 72;
+
+// Leigh Taylor's Screen Resolution is the base screen
+
+$taylorW = 1440;
+$taylorH = 900;
+$taylorArea = $taylorW * $taylorH;
+
+// If your screen is the same width as LT's, you see what he saw when designing 1:1
+
+$scaleFactor = 1;
+$scaleFactor = ::window[width]/$taylorW;
+
+$md = $base * $scaleFactor;
+$g = $base / 9 * $scaleFactor;

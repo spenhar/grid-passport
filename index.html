@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <title>Post Layout testing</title>
+    <link rel="stylesheet" type="text/css" href="css/font/National/National-Thin.css">
+    <link rel="stylesheet" type="text/css" href="css/font/National/National-Light.css">
+    <link rel="stylesheet" type="text/css" href="css/font/National/National-Medium.css">
+    <link rel="stylesheet" type="text/css" href="css/font/Newzald/fonts.css">
+    <link rel="stylesheet" type="text/css" href="css/font/Icons/Icons.css">
+
+    <link rel="stylesheet" href="css/login.css">
+    
+    <script src="https://rawgit.com/gss/document/ranges/dist/gss.document.parser.js"></script>
+    <script type="text/javascript">
+      window.engine = new GSS(document);
+
+    GSS.Document.prototype.Output.prototype.Unit.define({
+      md: function(value, engine, operation, continuation, scope) {
+        return value * engine.watch(null, 'md', operation, continuation, scope);
+      },
+      g: function(value, engine, operation, continuation, scope) {
+        return value * engine.watch(null, 'g', operation, continuation, scope);
+      }
+    })
+
+    GSS.Document.prototype.Input.prototype.Unit.define({
+      md: function(value) {
+        return ['*', ['get', 'md'], value];
+      },
+      g: function(value) {
+        return ['*', ['get', 'g'], value];
+      }
+    })
+
+    </script>
+    <!-- <link rel="stylesheet" type="text/gss" href="gss/layout.gss"></link> -->
+    <!-- Strange spacing to header when this is iff -->
+    <link rel="stylesheet" type="text/gss" href="gss/variables.gss"></link>  
+    <link rel="stylesheet" type="text/gss" href="gss/login.gss"></link>
+  </head>
+  <body>
+    <div class="background-image"></div>
+    
+    <div class="logo"><img src="images/g-logo-gold.svg" id="g-logo" alt=""></div>
+    
+    <button type="button" class="button twitter"><span class="button-text">Sign in with Twitter</span><img src="images/twitter.svg" class="icon" id="twitter-icon" alt=""></button>
+    
+    <button type="button" class="button github"><span class="button-text">Sign in with Github</span><img src="images/github.svg" class="icon" id="github-icon" alt=""></button>
+
+    <button type="button" class="button google"><span class="button-text">Sign in with Google</span><img src="images/twitter.svg" class="icon" id="google-icon" alt=""></button>
+    
+    <button type="button" class="button facebook"><span class="button-text">Sign in with Facebook</span><img src="images/github.svg" class="icon" id="facebook-icon" alt=""></button>
+
+    <button type="button" class="button email"><span class="button-text">Sign in with Email</span><img src="images/github.svg" class="icon" id="email-icon" alt=""></button>
+
+
+    <!-- <button type="submit" id="sign-in">Sign In</button> -->
+    
+<!--     <div class="center-line"></div>
+      <div class="layout-system user artistic w-assets sections" id="u143">
+      <div class="layout two-columns bricks">
+        <section class="post-section repost left">
+          <article class="post repost media quote w-source from-twitter w-author w-html">
+            <link rel="stylesheet/gss" type="text/gss" href="gss/repost-text.gss" scoped="scoped">
+            <div class="block media quote w-source from-twitter w-author w-html">
+              <div class="source">
+                <a href="https://twitter.com/elonmusk/status/495759307346952192" >Twitter</a>
+              </div>
+              <div class="author w-name w-avatar" >
+                <div class="name">elonmusk</div>
+                <div class="avatar" style="background-image:url(https://pbs.twimg.com/profile_images/420314816444502016/xj5TnUsx_bigger.jpeg)"></div>
+              </div>
+              <div class="html">
+                <blockquote>"Worth reading Superintelligence by Bostrom. We need to be super careful with AI. Potentially more dangerous than nukes."</blockquote>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+    </div> -->
+
+  </body>
+</html>

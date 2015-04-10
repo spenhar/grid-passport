@@ -1,0 +1,53 @@
+
+$gap = 1g;
+
+  @v |~(.twitter)-innergap-(.github)-innergap-(.google)-innergap-(.facebook)-innergap-(.email)~| ;
+
+  // .logo[center-y] == .twitter[top];
+  #g-logo[center-y] == ::window[center-y] /2;
+  .twitter[top] == ::window[center-y] ;
+
+  #g-logo[size] >= button[width] / 5;
+
+  // #g-logo[center-x] == ::window[center-x];
+  // #g-logo[center-y] == ::window[center-y] - 40g;
+
+  .icon[size] ==28;
+  .icon[center-y] == button[center-y];
+
+  button {
+    height: == 56;
+    width: <= 432 !strong;
+    width: == ::window[width] - 64 ;
+    font-size: == 3g;
+    font-size: >= 12;
+    font-size: <= 18;
+    // center-x: ==
+  }
+
+  button[center-x] == ::window[center-x] == #g-logo[center-x];
+  
+  .button-text {
+    height: == &intrinsic-height;
+    height: == &intrinsic-height;
+    text-align: left;
+  }
+
+  .button-text[center-y] == button[center-y];
+
+  .button{
+    @h |-24-(.button-text)~(.icon)-18-| ;
+  }
+
+
+
+
+  // #cassowaryImg[center] == ::window[center];
+  // p[size] == p[intrinsic-size];
+
+
+
+
+  // h1[center-x] == p[center-x] == #cassowaryImg[center-x];
+
+// }

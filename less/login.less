@@ -1,0 +1,162 @@
+@font-face {
+  font-family: "Bodoni 72 Bold";
+  src: url("font/Bodoni/BauerBodoniStd-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Senitel Medium Italic";
+  src: url("font/HFJ_Sentinel/Sentinel-MediumItal.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Sentinel Bold";
+  src: url("font/HFJ_Sentinel/Sentinel-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "National Light", Helvetica, Arial;
+  src: url("font/National/National-Light.css") format("opentype");
+}
+
+@font-face {
+  font-family: "National Medium";
+  src: url("font/National/National-Medium.css") format("opentype");
+}
+
+////////// MIXINS //////////
+
+.animation (@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation:    @name @duration @delay @ease;
+  -ms-animation:     @name @duration @delay @ease;
+}
+
+.transition (@duration, @ease:@linear, @prop:all, @delay:0) {
+  -webkit-transition: @prop @duration @delay @ease;
+  -moz-transition: @prop @duration @delay @ease;
+  -o-transition: @prop @duration @delay @ease;
+  -ms-transition: @prop @duration @delay @ease;
+  transition: @prop @duration @delay @ease;
+
+  -moz-transition-duration: @duration;
+  -moz-transition-property:@prop;
+  -moz-transition-delay:@delay;
+}
+
+////////// COLORS //////////
+
+// @titleColor: @colorA;
+// @titleColorB: @colorB;
+// @descriptionColor: @colorB;
+// @linkColor: @colorC;
+// @backgroundColor: @colorE;
+@white5: rgba(255, 255, 255, 0.05);
+@white10: rgba(255, 255, 255, 0.1);
+@white60: rgba(255, 255, 255, 0.6);
+@yellow: rgba(242, 215, 108, 1);
+@darker: rgba(28, 20, 33, 1);
+
+html{
+  width: 100%;
+}
+
+body{
+  width: 100%;
+  // background-image: url(/images/login-bg-noblur.jpg);
+  // filter: blur(20px);
+  // height: 100vh;
+  // width: 100vw;
+  // background-size: cover;
+  // background-position:50% 50%;
+
+  // color: @descriptionColor;
+  a,.cta{
+    // color: @linkColor;
+    // word-wrap: break-word;
+    // text-decoration: none;
+  }
+}
+
+.background-image {
+  position: fixed;
+  left: 0px;
+  top: 0;
+  padding: none;
+  // margin: -20px;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(/images/login-bg-noblur.jpg);
+  // filter: blur(20px);
+  // height: 100vh;
+  // width: 100vw;
+  background-size: cover;
+
+  // background-position: 50% 50%;
+    // This is what was shoving the buttons over. 
+
+
+  // -webkit-filter: blur(15px);
+  // -moz-filter: blur(15px);
+  // -o-filter: blur(15px);
+  // -ms-filter: blur(15px);
+  // filter: blur(15px);
+}
+
+.logo {
+  img {
+    opacity: 1;
+    .transition(.8s, ease-out, all, .05s);
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+#g-logo {
+  width: 36;
+}
+button {
+  border: 0;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  background-color: @white5;
+  
+  cursor: pointer;
+  // padding: 20px;
+  // font-size: 10;
+  font-family: National-Light, Arial, Helvetica;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  .transition(.4s, ease-out, background, .1s);
+  span {
+    color: @white60;
+    .transition(.4s, ease-out, color, .1s);
+  }
+  img {
+    opacity: .6;
+    .transition(.4s, ease-out, opacity, .1s);
+  }
+  &:hover{
+    color: white;
+    background-color: @white10;
+    span {
+      color: white;
+    }
+    img {
+      opacity: 1;
+    }
+
+  }
+  &.active {
+    border: 0;
+  }
+}
+button:focus {
+  outline:0;
+}
+#sign-in {
+  background-color: @yellow;
+  color: @darker;
+}
