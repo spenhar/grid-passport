@@ -1,19 +1,75 @@
+// BASE UNIT. All Things are sized based on $base
 
-$gap = 1g;
 
-  @v |~(.twitter)-innergap-(.github)-innergap-(.google)-innergap-(.facebook)-innergap-(.email)~| ;
+$base = 72;
+
+// Leigh Taylor's Screen Resolution is the base screen
+
+$taylorW = 1440;
+$taylorH = 900;
+$taylorArea = $taylorW * $taylorH;
+
+// If your screen is the same width as LT's, you see what he saw when designing 1:1
+
+$scaleFactor = 1;
+$scaleFactor = ::window[width]/$taylorW;
+
+$md = $base * $scaleFactor;
+$g = $base / 9 * $scaleFactor;
+
+
+// custom-gap == 20;
+//   @h (#darkbox)-(#lightbox) gap(custom-gap);  
+
+@if ::window[width] < 960 {
+  buttonGap = 6g;
+  logoGap = 20g;
+  @v |-logoGap-(#g-logo)-12g-(.sign-in)-12g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap);
+
+  .sign-in {
+    font-size: == 16g;
+    // font-size: >= 22;
+    // font-size: <= 28;
+  }
+
+}
+
+@else {
+  buttonGap = 3g;
+  logoGap = 12g;
+  @v |-logoGap-(#g-logo)-5g-(.sign-in)-6g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap) !strong;
+
+}
 
   // .logo[center-y] == .twitter[top];
-  #g-logo[center-y] == ::window[center-y] /2;
-  .twitter[top] == ::window[center-y] ;
+  
+  // #g-logo[center-y] == ::window[center-y] /2;
+  // .twitter[top] == ::window[center-y] ;
 
-  #g-logo[size] >= button[width] / 5;
+  #g-logo[size] >= button[width] / 8;
+
+// #g-logo {
+//   top: <= 12g;
+// }
 
   // #g-logo[center-x] == ::window[center-x];
   // #g-logo[center-y] == ::window[center-y] - 40g;
 
-  .icon[size] ==28;
-  .icon[center-y] == button[center-y];
+  .icon[size] == 2g;
+  // .fa[size] == .icon[size];
+  .icon[center-y] == .fa[center-y] == button[center-y];
+
+.sign-in[cx] == button[cx];
+// .sign-in[left] == .button-text[left];
+
+.sign-in {
+  width: == &intrinsic-width;
+  height: == &intrinsic-height;
+  font-size: == 8g;
+  // font-size: >= 22;
+  // font-size: <= 28;
+}
+
 
   button {
     height: == 56;
@@ -22,32 +78,25 @@ $gap = 1g;
     font-size: == 3g;
     font-size: >= 12;
     font-size: <= 18;
-    // center-x: ==
   }
 
-  button[center-x] == ::window[center-x] == #g-logo[center-x];
+  button[center-x] == ::window[center-x] == #g-logo[center-x] == #sign-in[center-x];
   
   .button-text {
-    height: == &intrinsic-height;
+    width: == &intrinsic-width;
     height: == &intrinsic-height;
     text-align: left;
+  }
+
+// allow the icons to be measured and centered.
+
+  .fa {
+    width: == &intrinsic-width;
+    height: == &intrinsic-height;
   }
 
   .button-text[center-y] == button[center-y];
 
   .button{
-    @h |-24-(.button-text)~(.icon)-18-| ;
+    @h |-24-(.button-text)~(.icon)-16-| ;
   }
-
-
-
-
-  // #cassowaryImg[center] == ::window[center];
-  // p[size] == p[intrinsic-size];
-
-
-
-
-  // h1[center-x] == p[center-x] == #cassowaryImg[center-x];
-
-// }

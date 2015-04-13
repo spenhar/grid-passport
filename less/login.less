@@ -52,9 +52,51 @@
 // @backgroundColor: @colorE;
 @white5: rgba(255, 255, 255, 0.05);
 @white10: rgba(255, 255, 255, 0.1);
+@white20: rgba(255, 255, 255, 0.2);
 @white60: rgba(255, 255, 255, 0.6);
 @yellow: rgba(242, 215, 108, 1);
+@yellow20: rgba(242, 215, 108, .2);
 @darker: rgba(28, 20, 33, 1);
+// @darker90: rgba(28, 20, 33, .9);
+
+
+
+/**********       COLORS       **********/
+
+@black: #000;
+@black-10: rgba(0,0,0,.1);
+@black-30: rgba(0,0,0,.3);
+@black-90: rgba(30,30,30,.9);
+@black-98: rgba(30,30,30,.98);
+@gray-9: #1a1918;
+@gray-8: #1f1e1d;
+@gray-7: #333330;
+@gray-6: #666661;
+@gray-5: #999891;
+@gray-4: #cccbc2;
+@gray-3: #e6e5da;
+@gray-2: #f2f1f6;
+@gray-1: #fafafa;
+@gray-30: rgba(120,120,120,.3);
+@gray-50: rgba(120,120,120,.7);
+@white: #fff;
+
+@yellow: rgb(242,231,109);
+
+@orange: rgb(242,198,109);
+
+@green: rgb(109,242,127);
+@green-2: #68d476;
+
+@blue: rgb(109,198,242);
+@blue-50: rgba(109,198,242,.5);
+@blue-30: rgba(109,198,242,.3);
+
+@red: rgb(242,109,131);
+@red-50: rgba(242,109,131,.5);
+@red-2: #d46884;
+
+
 
 html{
   width: 100%;
@@ -62,6 +104,7 @@ html{
 
 body{
   width: 100%;
+  background: @black-98;
   // background-image: url(/images/login-bg-noblur.jpg);
   // filter: blur(20px);
   // height: 100vh;
@@ -77,33 +120,9 @@ body{
   }
 }
 
-.background-image {
-  position: fixed;
-  left: 0px;
-  top: 0;
-  padding: none;
-  // margin: -20px;
-  overflow: hidden;
-  width: 100vw;
-  height: 100vh;
-  background-image: url(/images/login-bg-noblur.jpg);
-  // filter: blur(20px);
-  // height: 100vh;
-  // width: 100vw;
-  background-size: cover;
-
-  // background-position: 50% 50%;
-    // This is what was shoving the buttons over. 
-
-
-  // -webkit-filter: blur(15px);
-  // -moz-filter: blur(15px);
-  // -o-filter: blur(15px);
-  // -ms-filter: blur(15px);
-  // filter: blur(15px);
-}
-
 .logo {
+  z-index: 5;
+  opacity: .8;
   img {
     opacity: 1;
     .transition(.8s, ease-out, all, .05s);
@@ -113,22 +132,29 @@ body{
   }
 }
 
+.fa {
+  color: @white60;
+  .transition(.4s, ease-out, color, .1s)
+  // background: @white20;
+}
+
 #g-logo {
   width: 36;
 }
+
 button {
   border: 0;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
-  background-color: @white5;
+  background-color: @white10;
   
   cursor: pointer;
   // padding: 20px;
   // font-size: 10;
   font-family: National-Light, Arial, Helvetica;
   text-transform: uppercase;
-  letter-spacing: .1rem;
+  letter-spacing: .2rem;
   .transition(.4s, ease-out, background, .1s);
   span {
     color: @white60;
@@ -140,12 +166,15 @@ button {
   }
   &:hover{
     color: white;
-    background-color: @white10;
+    background-color: @white20;
     span {
       color: white;
     }
     img {
       opacity: 1;
+    }
+    .fa {
+      color: white;
     }
 
   }
@@ -156,7 +185,12 @@ button {
 button:focus {
   outline:0;
 }
-#sign-in {
-  background-color: @yellow;
-  color: @darker;
+
+.sign-in {
+  font-family: National Light, Arial, Helvetica;
+  // text-transform: uppercase;
+  letter-spacing: .1rem;
+  // background-color: @yellow;
+  color: @gray-3;
+  text-align: center;
 }
