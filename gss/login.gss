@@ -22,38 +22,31 @@ $g = $base / 9 * $scaleFactor;
 //   @h (#darkbox)-(#lightbox) gap(custom-gap);  
 
 @if ::window[width] < 960 {
-  buttonGap = 6g;
+  buttonGap = 8g;
   logoGap = 20g;
-  @v |-logoGap-(#g-logo)-12g-(.sign-in)-12g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap);
+  @v |-20g-(#g-logo)-12g-(.sign-in)-12g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap);
 
   .sign-in {
     font-size: == 16g;
     // font-size: >= 22;
     // font-size: <= 28;
-  }
+}
 
 }
 
 @else {
   buttonGap = 3g;
   logoGap = 12g;
-  @v |-logoGap-(#g-logo)-5g-(.sign-in)-6g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap) !strong;
+  @v |-12g-(#g-logo)-5g-(.sign-in)-6g-(.twitter)-(.github)-(.google)-(.facebook)-(.email)~| gap(buttonGap) !strong;
 
 }
 
-  // .logo[center-y] == .twitter[top];
-  
-  // #g-logo[center-y] == ::window[center-y] /2;
-  // .twitter[top] == ::window[center-y] ;
-
-  #g-logo[size] >= button[width] / 8;
+#g-logo[size] >= button[width] / 8;
 
 // #g-logo {
-//   top: <= 12g;
+//   top: == ^top;
 // }
 
-  // #g-logo[center-x] == ::window[center-x];
-  // #g-logo[center-y] == ::window[center-y] - 40g;
 
   .icon[size] == 2g;
   // .fa[size] == .icon[size];
@@ -73,7 +66,7 @@ $g = $base / 9 * $scaleFactor;
 
   button {
     height: == 56;
-    width: <= 432 !strong;
+    width: <= 400 !strong;
     width: == ::window[width] - 64 ;
     font-size: == 3g;
     font-size: >= 12;
